@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<script>
+	
+	//Declaramos el objeto k
+		var k = {
+			//tiene 3 propiedades o variables
+			nombre 	: "Antonio",
+			peso	: 90,
+			altura	: 1.82,
+			
+			//tiene 1 método o función
+			masacorporal : function (){
+				//Calcula el índice de masa corporal como
+				// el peso divididi entre el cuadrado de la altura
+				//this.peso es la proiedad peso de este objeto(k)
+				var r = this.peso / (this.altura*this.altura);
+				
+				//devuelve el índice redondeado..*100/100 para no 
+				//perder todos los decimales.
+				return Math.round(r*100)/100;
+			}		
+		};
+		
+	//declaramos la funcción f()
+		function f(){
+			//window.alert(k.peso);
+			//Cargamos la propiedad peso del objeto k con el valor que
+			//tenga el componente del documento html identificado por "dato1"
+			k.peso = document.getElementById("dato1").value;
+			//Cargamos la propiedad altura del objeto k con el valor que
+			//tenga el componente el documento html identificado por "dato2"
+			k.altura = document.getElementById("dato2").value;
+			//Cargamos lo que devuelva la función masacorporal() el el 
+			//documento el componente html identificado por "resultado"
+			document.getElementById("resultado").innerHTML = k.masacorporal();
+		}
+	</script>
+</head>
+
+<body>
+<!--Creamos 3 botones..2 de texto para introducir datos y 1 que al hacer clic 
+llame a la funcion f() que es la que calcula la masa corporal-->
+	Peso: <input type="text" id="dato1"/><br/>
+	Altura: <input type="text" id="dato2"/><br/>
+	<input type="button" onclick="f()"/><br/>
+	Resultado: <span id="resultado"> </span>
+</body>
+</html>
